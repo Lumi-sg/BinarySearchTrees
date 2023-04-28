@@ -22,7 +22,9 @@ export default class Tree {
 			this.buildTree(sorted.slice(0, middle)), //LEFT
 			this.buildTree(sorted.slice(middle + 1)) //RIGHT
 		);
-
 		return root;
 	}
+
+
+	
 }
