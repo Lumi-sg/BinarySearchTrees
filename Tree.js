@@ -25,6 +25,15 @@ export default class Tree {
 		return root;
 	}
 
-
-	
+	insert(data, node = this.root) {
+		if (!node) {
+			node = new Node(data);
+			return node;
+		} else if (data < node.data) {
+			node.left = this.insert(data, node.left);
+		} else if (data > node.data) {
+			node.right = this.insert(data, node.right);
+		}
+		return node;
+	}
 }

@@ -9,3 +9,5 @@ const myArray = createRandomArray();
 // TESTING
 const myTree = new Tree(myArray);
 prettyPrint(myTree.root);
+myTree.insert(5);
+prettyPrint(myTree.root);
