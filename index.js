@@ -9,11 +9,9 @@ const myArray = [1, 2, 3, 4, 6, 7, 8, 9, 10];
 
 // TESTING
 const myTree = new Tree(myArray);
-console.log("Default Tree:");
-prettyPrint(myTree.root);
+// console.log("Default Tree:");
+
 myTree.insert(12);
-console.log("Tree after inserted value:");
-prettyPrint(myTree.root);
 myTree.delete(7);
-console.log("Tree after deleted value:");
 prettyPrint(myTree.root);
+console.log(myTree.find(12));

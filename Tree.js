@@ -66,4 +66,14 @@ export default class Tree {
 		}
 		return minimum;
 	}
+
+	find(data, node = this.root) {
+		if (data === node.data) {
+			return node;
+		} else if (data < node.data) {
+			return this.find(data, node.left);
+		} else if (data > node.data) {
+			return this.find(data, node.right);
+		}
+	}
 }
