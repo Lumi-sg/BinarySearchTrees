@@ -12,6 +12,10 @@ const myTree = new Tree(myArray);
 // console.log("Default Tree:");
 
 myTree.insert(12);
+console.log(`Inserted "12" into the tree.`);
 myTree.delete(7);
+console.log(`Deleted "7" from the tree.`);
 prettyPrint(myTree.root);
+console.log(`Found "12" in the tree:`);
 console.log(myTree.find(12));
+console.log(myTree.levelOrder());

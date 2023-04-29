@@ -76,4 +76,32 @@ export default class Tree {
 			return this.find(data, node.right);
 		}
 	}
+	
+	//(level by level)
+	levelOrder(mainMethod = null) {
+		const queue = [this.root];
+		console.log(queue);
+		const data = [];
+
+		while (queue.length) {
+			const node = queue.shift();
+			data.push(node.data);
+
+			if (mainMethod) {
+				mainMethod(node);
+			}
+
+			if (node.left) {
+				queue.push(node.left);
+			}
+			if (node.right) {
+				queue.push(node.right);
+			}
+		}
+		if (!mainMethod) {
+			return data;
+		} else {
+			return null;
+		}
+	}
 }
