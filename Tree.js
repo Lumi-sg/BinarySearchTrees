@@ -124,4 +124,22 @@ export default class Tree {
 			return result;
 		}
 	}
+	preOrder(node = this.root, mainMethod, result = []) {
+		if (!this.root) {
+			return [];
+		}
+		if (!node) {
+			return;
+		}
+		if (mainMethod) {
+			mainMethod(node);
+		} else {
+			result.push(node.data);
+		}
+		this.preOrder(node.left, mainMethod, result);
+		this.preOrder(node.right, mainMethod, result);
+		if (result) {
+			return result;
+		}
+	}
 }
