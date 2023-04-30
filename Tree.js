@@ -76,11 +76,10 @@ export default class Tree {
 			return this.find(data, node.right);
 		}
 	}
-	
+
 	//(level by level)
 	levelOrder(mainMethod = null) {
 		const queue = [this.root];
-		console.log(queue);
 		const data = [];
 
 		while (queue.length) {
@@ -102,6 +101,27 @@ export default class Tree {
 			return data;
 		} else {
 			return null;
+		}
+	}
+
+	inOrder(node = this.root, mainMethod, result = []) {
+		if (!this.root) {
+			return [];
+		}
+		if (!node) {
+			return;
+		}
+		this.inOrder(node.left, mainMethod, result);
+
+		if (mainMethod) {
+			mainMethod(node);
+		} else {
+			result.push(node.data);
+		}
+		this.inOrder(node.right, mainMethod, result);
+
+		if (result) {
+			return result;
 		}
 	}
 }

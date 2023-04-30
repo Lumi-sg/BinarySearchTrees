@@ -19,3 +19,4 @@ prettyPrint(myTree.root);
 console.log(`Found "12" in the tree:`);
 console.log(myTree.find(12));
 console.log(myTree.levelOrder());
+console.log(myTree.inOrder());
