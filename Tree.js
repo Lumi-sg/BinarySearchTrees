@@ -142,4 +142,70 @@ export default class Tree {
 			return result;
 		}
 	}
+
+	postOrder(node = this.root, mainMethod, result = []) {
+		if (!this.root) {
+			return [];
+		}
+		if (!node) {
+			return;
+		}
+		this.postOrder(node.left, mainMethod, result);
+		this.postOrder(node.right, mainMethod, result);
+		if (mainMethod) {
+			mainMethod(node);
+		} else {
+			result.push(node.data);
+		}
+		if (result) {
+			return result;
+		}
+	}
+
+	height(node = this.root) {
+		if (!node) {
+			return -1;
+		}
+		let leftHeight = this.height(node.left);
+		let rightHeight = this.height(node.right);
+		return Math.max(leftHeight, rightHeight) + 1;
+	}
+
+	depth(node, root = this.root, level = 0) {
+		if (!root) {
+			return null;
+		}
+
+		if (root.key === node.key) {
+			return level;
+		}
+
+		let count = this.depth(node, root.left, level + 1);
+		if (count === null) {
+			return this.depth(node, root.right, level + 1);
+		} else {
+			return count;
+		}
+	}
+
+	isBalanced() {
+		const checkBalance = (node) => {
+			if (!node) {
+				return true;
+			}
+			let leftHeight = this.height(node.left);
+			let rightHeight = this.height(node.right);
+			if (Math.abs(leftHeight - rightHeight) > 1) {
+				return false;
+			}
+			return checkBalance(node.left) && checkBalance(node.right);
+		};
+
+		return checkBalance(this.root);
+	}
+
+	rebalance() {
+		let currentTreeArray = this.inOrder();
+		this.root = this.buildTree(currentTreeArray);
+	}
 }

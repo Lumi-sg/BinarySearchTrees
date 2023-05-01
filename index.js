@@ -9,7 +9,6 @@ const myArray = [1, 2, 3, 4, 6, 7, 8, 9, 10];
 
 // TESTING
 const myTree = new Tree(myArray);
-// console.log("Default Tree:");
 
 myTree.insert(12);
 console.log(`Inserted "12" into the tree.`);
@@ -18,6 +17,12 @@ console.log(`Deleted "7" from the tree.`);
 prettyPrint(myTree.root);
 console.log(`Found "12" in the tree:`);
 console.log(myTree.find(12));
+console.log("Levelorder:");
 console.log(myTree.levelOrder());
+console.log("Inorder:");
 console.log(myTree.inOrder());
+console.log("Preorder:");
 console.log(myTree.preOrder());
+console.log("Postorder:");
+console.log(myTree.postOrder());
+console.log(myTree.isBalanced());
